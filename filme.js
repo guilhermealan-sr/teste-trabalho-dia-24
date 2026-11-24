@@ -221,14 +221,23 @@ document.getElementById("form-resenha").addEventListener("submit", function (e) 
 
     const avaliacoes = pegarAvaliacoes();
     const resenha = campoResenha.value.trim();
+    const chave = chaveAvaliacao();
 
     if (nota === 0 && !resenha) {
-        delete avaliacoes[chaveAvaliacao()];
-        avaliacoes[chaveAvaliacao()] = {
+        delete avaliacoes[chave];
+    } else {
+        avaliacoes[chave] = {
             estrelas: nota,
             resenha: resenha,
-            data: Date.now() 
+            data: Date.now()
         };
+    }
+
+    localStorage.setItem("avaliacoes", JSON.stringify(avaliacoes));
+
+    btnSalvar.textContent = "Avaliação salva!";
+    setTimeout(() => btnSalvar.textContent = "Salvar avaliação", 2000);
+});
     }
     localStorage.setItem("avaliacoes", JSON.stringify(avaliacoes));
 
