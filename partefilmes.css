@@ -1,0 +1,13 @@
+.poster-filme {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #38414a;
+    background-color: #1c2228;
+}
+
+.sinopse {
+    color: #9ab;
+    line-height: 1.7;
+}
